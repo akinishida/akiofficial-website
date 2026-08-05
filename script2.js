@@ -3,32 +3,31 @@
 // script2.js
 // ===========================
 
+
 function showPage(pageId){
 
-    // すべてのページを取得
     const pages = document.querySelectorAll(".page");
 
-    // いったん全部非表示
     pages.forEach(function(page){
         page.style.display = "none";
     });
 
-    // 選択したページだけ表示
     const target = document.getElementById(pageId);
 
     if(target){
 
         target.style.display = "block";
 
-        // ページの先頭へスクロール
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
+        // 表示したページまでスクロール
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
         });
 
     }
 
 }
+
 
 // 写真クリックで拡大表示
 
@@ -50,3 +49,19 @@ function closeLightbox(){
 document.getElementById("lightbox").style.display = "none";
 
 }
+
+function showProfile(id){
+
+    const pages = document.querySelectorAll(".profile-page");
+
+    pages.forEach(function(page){
+        page.style.display = "none";
+    });
+
+    const target = document.getElementById(id);
+
+    if(target){
+        target.style.display = "block";
+    }
+}
+
